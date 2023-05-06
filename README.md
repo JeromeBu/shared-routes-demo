@@ -1,3 +1,19 @@
+# Demo of shared-routes library usage
+
+The repository is a demo of how to use the shared-routes library in a monorepo.
+It is build with turbo-repo.
+
+There are two apps in the monorepo:
+- app/front
+- app/back
+
+They both share the same routes defined in the package route
+- packages/routes
+
+The last package : packages/tsconfig is the classic turbo repo way of sharing tsconfig.json files. 
+
+## 
+
 # Turborepo starter
 
 This is an official starter Turborepo.
