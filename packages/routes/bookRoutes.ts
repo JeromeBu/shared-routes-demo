@@ -7,6 +7,8 @@ const bookSchema = z.object({
   numberOfPages: z.number(),
 })
 
+export type Book = z.infer<typeof bookSchema>
+
 export const bookRoutes = defineRoutes({
   getBooks: defineRoute({
     url: "/books",

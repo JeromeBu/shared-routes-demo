@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import axios from "axios";
+import { useState } from "react";
+import { createAxiosSharedClient } from "shared-routes-axios";
+import { Book, bookRoutes } from "routes";
+
+const axiosInstance = axios.create({});
+const axiosSharedRoutes = createAxiosSharedClient(bookRoutes, axiosInstance);
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState<Book[]>([]);
+
+  const getBooks = async () => {
+    const response = await axiosSharedRoutes.getBooks();
+    setBooks(response.body);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Shared routes demo</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <button onClick={getBooks}>Get all books</button>
+
+        {books.length > 0 && (
+          <ul>
+            {books.map((book) => (
+              <li key={book.title}>
+                {book.title} - {book.author} - {book.numberOfPages} pages
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
