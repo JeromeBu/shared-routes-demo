@@ -25,5 +25,6 @@ export const bookRoutes = defineRoutes({
     url: "/books",
     method: "post",
     bodySchema: bookSchema,
+    responseBodySchema: z.object({ success: z.boolean() }),
   }),
 });

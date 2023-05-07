@@ -1,10 +1,10 @@
-import express from "express";
+import express, { Express } from "express";
 import bodyParser from "body-parser";
 import { Book, bookRoutes } from "routes";
 import { createExpressSharedRouter } from "shared-routes-express";
 
 const booksStorage: Book[] = [
-  { title: "The Hobbit", author: "J.R.R. Tolkien", numberOfPages: 310 },
+  // { title: "The Hobbit", author: "J.R.R. Tolkien", numberOfPages: 310 },
 ];
 
 const createBookRouter = () => {
@@ -28,7 +28,7 @@ const createBookRouter = () => {
   return expressRouter;
 };
 
-export const createBookApi = () => {
+export const createBookApp = (): Express => {
   const app = express();
   app.use(bodyParser.json());
   app.use(createBookRouter());

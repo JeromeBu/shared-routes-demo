@@ -1,16 +1,27 @@
 {
   "name": "back",
   "scripts": {
-    "dev": "ts-node ./src/startServer.ts"
+    "dev": "ts-node ./src/startServer.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
+    "routes": "workspace:*",
     "shared-routes-express": "^0.5.3",
-    "shared-routes-supertest": "^0.5.3",
-    "routes": "workspace:*"
+    "shared-routes-supertest": "^0.5.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-typescript": "^7.21.5",
+    "@types/body-parser": "^1.19.2",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.1",
+    "@types/supertest": "^2.0.12",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }

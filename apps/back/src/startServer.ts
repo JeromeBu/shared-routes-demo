@@ -1,13 +1,6 @@
-import { createBookApi } from "./createBookApi";
+import { createBookApp } from "./createBookApp";
 
 const port = 4000;
-createBookApi().listen(
-  port,
-  () => {
-    console.log(`Server started, listening on port ${port}`);
-  },
-  (error: any) => {
-    console.error(error, `Server start failed`);
-    process.exit(1);
-  }
-);
+createBookApp().listen(port, () => {
+  console.log(`Server started, listening on port ${port}`);
+});
