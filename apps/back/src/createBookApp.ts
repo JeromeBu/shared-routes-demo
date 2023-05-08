@@ -4,7 +4,7 @@ import { Book, bookRoutes } from "routes";
 import { createExpressSharedRouter } from "shared-routes/express";
 
 const booksStorage: Book[] = [
-  // { title: "The Hobbit", author: "J.R.R. Tolkien", numberOfPages: 310 },
+  { title: "The Hobbit", author: "J.R.R. Tolkien", numberOfPages: 310 },
 ];
 
 const createBookRouter = () => {
@@ -17,6 +17,7 @@ const createBookRouter = () => {
   expressSharedRouter.getBooks((req, res) => {
     const { orderBy } = req.query;
     // orderBy alphabetically
+    console.log("getBooks ordered by: ", orderBy);
     res.json(booksStorage.sort((a, b) => a[orderBy].localeCompare(b[orderBy])));
   });
 

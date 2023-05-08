@@ -6,7 +6,7 @@ import { Book, bookRoutes } from "routes";
 import SwaggerUI from "swagger-ui-react";
 import { openApiSpec } from "./openApiSpec";
 
-const axiosInstance = axios.create({ baseURL: "localhost:4000" });
+const axiosInstance = axios.create({ baseURL: "/api" });
 const axiosSharedRoutes = createAxiosSharedClient(bookRoutes, axiosInstance);
 
 type Mode = "listBooks" | "showOpenApiDocs";
@@ -33,10 +33,14 @@ const ListBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
 
   const getBooks = async () => {
-    const response = await axiosSharedRoutes.getBooks({
-      queryParams: { orderBy: "author" },
-    });
-    setBooks(response.body);
+    try {
+      const response = await axiosSharedRoutes.getBooks({
+        queryParams: { orderBy: "title" },
+      });
+      setBooks(response.body);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
