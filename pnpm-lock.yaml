@@ -22,12 +22,9 @@ importers:
       routes:
         specifier: workspace:*
         version: link:../../packages/routes
-      shared-routes-express:
-        specifier: ^0.5.3
-        version: 0.5.3
-      shared-routes-supertest:
-        specifier: ^0.5.3
-        version: 0.5.3
+      shared-routes:
+        specifier: ^0.6.0
+        version: 0.6.0(zod@3.21.4)
     devDependencies:
       '@babel/core':
         specifier: ^7.21.8
@@ -80,12 +77,9 @@ importers:
       routes:
         specifier: workspace:*
         version: link:../../packages/routes
-      shared-routes-axios:
-        specifier: ^0.5.3
-        version: 0.5.3
-      shared-routes-openapi:
-        specifier: ^0.5.3
-        version: 0.5.3
+      shared-routes:
+        specifier: ^0.6.0
+        version: 0.6.0(zod@3.21.4)
       swagger-ui-react:
         specifier: ^4.18.3
         version: 4.18.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
@@ -127,8 +121,8 @@ importers:
   packages/routes:
     dependencies:
       shared-routes:
-        specifier: ^0.5.2
-        version: 0.5.2
+        specifier: ^0.6.0
+        version: 0.6.0(zod@3.21.4)
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -2307,14 +2301,17 @@ packages:
     dependencies:
       '@types/connect': 3.4.35
       '@types/node': 20.1.0
+    dev: true
 
   /@types/connect@3.4.35:
     resolution: {integrity: sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==}
     dependencies:
       '@types/node': 20.1.0
+    dev: true
 
   /@types/cookiejar@2.1.2:
     resolution: {integrity: sha512-t73xJJrvdTjXrn4jLS9VSGRbz0nUY3cl2DMGDU48lKl+HR9dbbjW2A9r3g40VA++mQpy6uuHg33gy7du2BKpog==}
+    dev: true
 
   /@types/express-serve-static-core@4.17.34:
     resolution: {integrity: sha512-fvr49XlCGoUj2Pp730AItckfjat4WNb0lb3kfrLWffd+RLeoGAMsq7UOy04PAPtoL01uKwcp6u8nhzpgpDYr3w==}
@@ -2323,6 +2320,7 @@ packages:
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
       '@types/send': 0.17.1
+    dev: true
 
   /@types/express@4.17.17:
     resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
@@ -2331,6 +2329,7 @@ packages:
       '@types/express-serve-static-core': 4.17.34
       '@types/qs': 6.9.7
       '@types/serve-static': 1.15.1
+    dev: true
 
   /@types/graceful-fs@4.1.6:
     resolution: {integrity: sha512-Sig0SNORX9fdW+bQuTEovKj3uHcUL6LQKbCrrqb1X7J6/ReAbhCXRAhc+SMejhLELFj2QcyuxmUooZ4bt5ReSw==}
@@ -2380,12 +2379,15 @@ packages:
 
   /@types/mime@1.3.2:
     resolution: {integrity: sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==}
+    dev: true
 
   /@types/mime@3.0.1:
     resolution: {integrity: sha512-Y4XFY5VJAuw0FgAqPNd6NNoV44jbq9Bz2L7Rh/J6jLTiHBSBJa9fxqQIvkIld4GsoDOcCbvzOUAbLPsSKKg+uA==}
+    dev: true
 
   /@types/node@20.1.0:
     resolution: {integrity: sha512-O+z53uwx64xY7D6roOi4+jApDGFg0qn6WHcxe5QeqjMaTezBO/mxdfFXIVAVVyNWKx84OmPB3L8kbVYOTeN34A==}
+    dev: true
 
   /@types/prettier@2.7.2:
     resolution: {integrity: sha512-KufADq8uQqo1pYKVIYzfKbJfBAc0sOeXqGbFaSpv8MRmC/zXgowNZmFcbngndGk922QDmOASEXUZCaY48gs4cg==}
@@ -2396,6 +2398,7 @@ packages:
 
   /@types/qs@6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
+    dev: true
 
   /@types/ramda@0.29.0:
     resolution: {integrity: sha512-TY9eKsklU43CmAbFJPKDUyBjleZ4EFAkbJeQRF4e8byGkOw1CjDcwg5EGa0Bgf0Kgs9BE9OU4UzQWnQDHnvMtA==}
@@ -2405,6 +2408,7 @@ packages:
 
   /@types/range-parser@1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
+    dev: true
 
   /@types/react-dom@18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
@@ -2430,12 +2434,14 @@ packages:
     dependencies:
       '@types/mime': 1.3.2
       '@types/node': 20.1.0
+    dev: true
 
   /@types/serve-static@1.15.1:
     resolution: {integrity: sha512-NUo5XNiAdULrJENtJXZZ3fHtfMolzZwczzBbnAeBbqBwG+LaG6YaJtuwzwGSQZ2wsCrxjEhNNjAkKigy3n8teQ==}
     dependencies:
       '@types/mime': 3.0.1
       '@types/node': 20.1.0
+    dev: true
 
   /@types/stack-utils@2.0.1:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
@@ -2446,11 +2452,13 @@ packages:
     dependencies:
       '@types/cookiejar': 2.1.2
       '@types/node': 20.1.0
+    dev: true
 
   /@types/supertest@2.0.12:
     resolution: {integrity: sha512-X3HPWTwXRerBZS7Mo1k6vMVR1Z6zmJcDVn5O/31whe0tnjE4te6ZJSJGq1RiqHPjzPdMTfjCFogDJmwng9xHaQ==}
     dependencies:
       '@types/superagent': 4.1.17
+    dev: true
 
   /@types/swagger-ui-react@4.18.0:
     resolution: {integrity: sha512-XtvFXmj46Zibe89tFQwSQknrq1NxEtOep2rZuxth7K88tyPEP00FnoA6H7ATYhocAEA4XUWaNHNFWFRl1KX8aQ==}
@@ -5034,10 +5042,6 @@ packages:
       is-wsl: 2.2.0
     dev: false
 
-  /openapi-types@12.1.0:
-    resolution: {integrity: sha512-XpeCy01X6L5EpP+6Hc3jWN7rMZJ+/k1lwki/kTmWzbVhdPie3jd5O2ZtedEx8Yp58icJ0osVldLMrTB/zslQXA==}
-    dev: false
-
   /optionator@0.9.1:
     resolution: {integrity: sha512-74RlY5FCnhq4jRxVUPKDaRwrVNXMqsGsiW6AJw4XK8hmtm10wC0ypZBLw5IIp85NZMr91+qd1RvvENwg7jjRFw==}
     engines: {node: '>= 0.8.0'}
@@ -5801,43 +5805,10 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /shared-routes-axios@0.5.3:
-    resolution: {integrity: sha512-XX/0rc0AlfPq8RnoDhodPRtrZ+tzSbnDayPcsY/mLAmtVGZlv2RrSgjCNMqtrtQ0DCHViDBsuu7yRfg/ehHYLg==}
-    dependencies:
-      axios: 0.26.1
-      shared-routes: 0.5.2
-      zod: 3.21.4
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /shared-routes-express@0.5.3:
-    resolution: {integrity: sha512-K0jR230cLGDJAs1RGyAF92nNQNz2L6cxIC0I63GFqp3Y6OlrRaxcM5whCeI80Hmp8LbVhOFU9UEmweEfMsQfIw==}
-    dependencies:
-      '@types/express': 4.17.17
-      shared-routes: 0.5.2
-      zod: 3.21.4
-    dev: false
-
-  /shared-routes-openapi@0.5.3:
-    resolution: {integrity: sha512-zd8Ddr10JXoUGPr6DfazFYwuPkN+xhzJ/qshyvCIzh3k1mnaV1LPfWjT8jiIK7t9h4QVZ9MLOvyArlq2NPn6tg==}
-    dependencies:
-      openapi-types: 12.1.0
-      shared-routes: 0.5.2
-      zod: 3.21.4
-      zod-to-json-schema: 3.21.0(zod@3.21.4)
-    dev: false
-
-  /shared-routes-supertest@0.5.3:
-    resolution: {integrity: sha512-vjT9XduHlvg3bqcU36k/LFW+xT1U2ya+Y7IGYGc1ka6jnSY/QLiCQZq0MAO9oTY+MrPGwyt2XuXwGJPVe5vWeg==}
-    dependencies:
-      '@types/supertest': 2.0.12
-      shared-routes: 0.5.2
-      zod: 3.21.4
-    dev: false
-
-  /shared-routes@0.5.2:
-    resolution: {integrity: sha512-/9WaBs/g18WGOdgXlUuYef8TA5WcJ7fjPbaTrByDETot0g8TrPHNh135wgfpKDIQM52n213BmMfhTKal/YAX5Q==}
+  /shared-routes@0.6.0(zod@3.21.4):
+    resolution: {integrity: sha512-VQo+KjthRKPty/4G/yDC3CN54vXyFGEwE2vJFPzdIgsFvj4sMBjComAJWwyi45KhL1zb25x3mNuzR6PKmZSoJg==}
+    peerDependencies:
+      zod: ^3.0.0
     dependencies:
       zod: 3.21.4
     dev: false
@@ -6686,14 +6657,6 @@ packages:
 
   /zenscroll@4.0.2:
     resolution: {integrity: sha512-jEA1znR7b4C/NnaycInCU6h/d15ZzCd1jmsruqOKnZP6WXQSMH3W2GL+OXbkruslU4h+Tzuos0HdswzRUk/Vgg==}
-    dev: false
-
-  /zod-to-json-schema@3.21.0(zod@3.21.4):
-    resolution: {integrity: sha512-+KyFCzqKwE6CxMSZxEUBaGmdXzB09BoFebO+xef/ISE4cTfReQlyThYbS8aqd3uWkdt9fz5BGHsY0CbY+Ra9oA==}
-    peerDependencies:
-      zod: ^3.21.4
-    dependencies:
-      zod: 3.21.4
     dev: false
 
   /zod@3.21.4:

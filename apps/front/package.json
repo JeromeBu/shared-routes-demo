@@ -15,8 +15,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "routes": "workspace:*",
-    "shared-routes-axios": "^0.5.3",
-    "shared-routes-openapi": "^0.5.3",
+    "shared-routes": "^0.6.0",
     "swagger-ui-react": "^4.18.3"
   },
   "devDependencies": {

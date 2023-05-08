@@ -1,7 +1,7 @@
 import express, { Express } from "express";
 import bodyParser from "body-parser";
 import { Book, bookRoutes } from "routes";
-import { createExpressSharedRouter } from "shared-routes-express";
+import { createExpressSharedRouter } from "shared-routes/express";
 
 const booksStorage: Book[] = [
   // { title: "The Hobbit", author: "J.R.R. Tolkien", numberOfPages: 310 },

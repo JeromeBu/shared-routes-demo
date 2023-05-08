@@ -1,5 +1,5 @@
 import { Book, bookRoutes } from "routes";
-import { createSupertestSharedClient } from "shared-routes-supertest";
+import { createSupertestSharedClient } from "shared-routes/supertest";
 import supertest from "supertest";
 import { createBookApp } from "./createBookApp";
 
