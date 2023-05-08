@@ -1,8 +1,8 @@
 {
   "name": "routes",
   "version": "0.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "main": "./index.ts",
+  "types": "./index.ts",
   "scripts": {
     "lint": "eslint \"**/*.ts*\"",
     "typecheck": "tsc --noEmit"
@@ -11,7 +11,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "shared-routes": "^0.6.0",
+    "shared-routes": "^0.6.1",
     "zod": "^3.21.4"
   }
 }

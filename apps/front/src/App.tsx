@@ -1,12 +1,12 @@
 import "./App.css";
 import axios from "axios";
 import { useState } from "react";
-import { createAxiosSharedClient } from "shared-routes-axios";
+import { createAxiosSharedClient } from "shared-routes/axios";
 import { Book, bookRoutes } from "routes";
 import SwaggerUI from "swagger-ui-react";
 import { openApiSpec } from "./openApiSpec";
 
-const axiosInstance = axios.create({});
+const axiosInstance = axios.create({ baseURL: "localhost:4000" });
 const axiosSharedRoutes = createAxiosSharedClient(bookRoutes, axiosInstance);
 
 type Mode = "listBooks" | "showOpenApiDocs";

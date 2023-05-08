@@ -2,6 +2,7 @@ import { Book, bookRoutes } from "routes";
 import { createSupertestSharedClient } from "shared-routes/supertest";
 import supertest from "supertest";
 import { createBookApp } from "./createBookApp";
+import { describe, it, expect } from "vitest";
 
 const getSharedSupertestRequest = () => {
   const app = createBookApp();

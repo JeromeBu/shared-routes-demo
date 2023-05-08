@@ -15,9 +15,14 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "lib": ["ES2020", "DOM"],
-    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "module": "CommonJS",
     "target": "ES2017"
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
