@@ -63,8 +63,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/routes
       shared-routes:
-        specifier: ^0.6.1
-        version: 0.6.1(zod@3.21.4)
+        specifier: link:../../../shared-routes
+        version: link:../../../shared-routes
       swagger-ui-react:
         specifier: ^4.18.3
         version: 4.18.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)

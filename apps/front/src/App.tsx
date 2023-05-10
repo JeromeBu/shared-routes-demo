@@ -1,63 +1,19 @@
-import "./App.css";
-import axios from "axios";
-import { useState } from "react";
-import { createAxiosSharedClient } from "shared-routes/axios";
-import { Book, bookRoutes } from "routes";
 import SwaggerUI from "swagger-ui-react";
+import "swagger-ui-react/swagger-ui.css";
+import "./App.css";
+import { ListBooks } from "./ListBooks";
 import { openApiSpec } from "./openApiSpec";
 
-const axiosInstance = axios.create({ baseURL: "/api" });
-const axiosSharedRoutes = createAxiosSharedClient(bookRoutes, axiosInstance);
-
-type Mode = "listBooks" | "showOpenApiDocs";
-
-const App = () => {
-  const [mode, setMode] = useState<Mode>("listBooks");
-
+export const App = () => {
   return (
     <>
       <h1>Shared routes demo</h1>
-      <div>
-        <button onClick={() => setMode("listBooks")}>List books</button>
-        <button onClick={() => setMode("showOpenApiDocs")}>Show docs</button>
-      </div>
-      <div className="card">
-        {mode === "listBooks" && <ListBooks />}
-        {mode === "showOpenApiDocs" && <SwaggerUI spec={openApiSpec} />}
+      <div className="books">
+        <ListBooks />
+        <div className="docs">
+          <SwaggerUI spec={openApiSpec} />
+        </div>
       </div>
     </>
   );
 };
-
-const ListBooks = () => {
-  const [books, setBooks] = useState<Book[]>([]);
-
-  const getBooks = async () => {
-    try {
-      const response = await axiosSharedRoutes.getBooks({
-        queryParams: { orderBy: "title" },
-      });
-      setBooks(response.body);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return (
-    <div>
-      <button onClick={getBooks}>Get all books</button>
-
-      {books.length > 0 && (
-        <ul>
-          {books.map((book) => (
-            <li key={book.title}>
-              {book.title} - {book.author} - {book.numberOfPages} pages
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
-
-export default App;
