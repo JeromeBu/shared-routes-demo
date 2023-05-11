@@ -42,5 +42,3 @@ export const openApiSpec = generateOpenApiSpec({
     },
   },
 });
-
-console.log(openApiSpec);

@@ -17,7 +17,6 @@ const createBookRouter = () => {
   expressSharedRouter.getBooks((req, res) => {
     const { orderBy } = req.query;
     // orderBy alphabetically
-    console.log("getBooks ordered by: ", orderBy);
     res.json(booksStorage.sort((a, b) => a[orderBy].localeCompare(b[orderBy])));
   });
 

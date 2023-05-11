@@ -8,11 +8,15 @@ export const App = () => {
   return (
     <>
       <h1>Shared routes demo</h1>
-      <div className="books">
+      <p>
+        A show case of{" "}
+        <a href="https://github.com/JeromeBu/shared-routes">
+          the shared-routes library
+        </a>
+      </p>
+      <div>
         <ListBooks />
-        <div className="docs">
-          <SwaggerUI spec={openApiSpec} />
-        </div>
+        <SwaggerUI spec={openApiSpec} />
       </div>
     </>
   );
