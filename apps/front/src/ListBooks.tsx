@@ -2,17 +2,22 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Book } from "routes";
 import { bookRoutes } from "routes";
-import { createAxiosSharedClient } from "shared-routes/axios";
+// import { createAxiosSharedClient } from "shared-routes/axios";
+import { createFetchSharedClient } from "shared-routes/fetch";
 
-const axiosInstance = axios.create({ baseURL: "/api" });
-const axiosSharedRoutes = createAxiosSharedClient(bookRoutes, axiosInstance);
+// const axiosInstance = axios.create({ baseURL: "/api" });
+// const httpClient = createAxiosSharedClient(bookRoutes, axiosInstance);
+
+const httpClient = createFetchSharedClient(bookRoutes, fetch, {
+  baseURL: "/api",
+});
 
 export const ListBooks = () => {
   const [orderBy, setOrderBy] = useState<"title" | "author">("author");
   const [books, setBooks] = useState<Book[]>([]);
 
   const fetchBooks = () =>
-    axiosSharedRoutes
+    httpClient
       .getBooks({
         queryParams: { orderBy },
       })
@@ -65,7 +70,7 @@ const AddBookForm = ({ refetchData }: { refetchData: () => void }) => {
         e.preventDefault();
         const book: Book = { title, author, numberOfPages };
         if (!book.title || !book.author || !book.numberOfPages) return;
-        await axiosSharedRoutes.addBook({
+        await httpClient.addBook({
           body: book,
         });
         setTitle("");

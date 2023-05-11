@@ -19,12 +19,12 @@ export const bookRoutes = defineRoutes({
   getBookByTitle: defineRoute({
     url: "/books/:title",
     method: "get",
-    headersSchema: z.object({ Authorization: z.string() }),
+    // headersSchema: z.object({ Authorization: z.string() }),
     responseBodySchema: bookSchema,
   }),
   addBook: defineRoute({
     url: "/books",
     method: "post",
-    bodySchema: bookSchema,
+    requestBodySchema: bookSchema,
   }),
 });
