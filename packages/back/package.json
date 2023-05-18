@@ -2,7 +2,7 @@
   "name": "back",
   "main": "src/startServer.ts",
   "scripts": {
-    "dev": "ts-node ./src/startServer.ts",
+    "dev": "ts-node-dev ./src/startServer.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest"
   },
@@ -18,6 +18,7 @@
     "@types/supertest": "^2.0.12",
     "supertest": "^6.3.3",
     "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.0.4",
     "vitest": "^0.31.0"
   }
