@@ -1,24 +1,20 @@
 import { useEffect, useState } from "react";
 import { Book } from "routes";
 import { bookRoutes } from "routes";
-// import { createAxiosSharedClient } from "shared-routes/axios";
 import { createFetchSharedClient } from "shared-routes/fetch";
-
-// const axiosInstance = axios.create({ baseURL: "/api" });
-// const httpClient = createAxiosSharedClient(bookRoutes, axiosInstance);
 
 const httpClient = createFetchSharedClient(bookRoutes, fetch, {
   baseURL: "/api",
 });
 
 export const ListBooks = () => {
-  const [orderBy, setOrderBy] = useState<"title" | "author">("author");
+  const [searchInTitle, setSearchInTitle] = useState("");
   const [books, setBooks] = useState<Book[]>([]);
 
   const fetchBooks = () =>
     httpClient
       .getBooks({
-        queryParams: { orderBy },
+        queryParams: { titleContains: searchInTitle },
       })
       .then((response) => {
         setBooks(response.body);
@@ -26,22 +22,20 @@ export const ListBooks = () => {
 
   useEffect(() => {
     fetchBooks();
-  }, [orderBy]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchInTitle]);
 
   return (
     <>
       <AddBookForm refetchData={fetchBooks} />
       <hr />
-      <label htmlFor="orderBy">Order by</label>
-      <select
-        name="orderBy"
-        id="orderBy"
-        defaultValue="author"
-        onChange={(e) => setOrderBy(e.target.value as "title" | "author")}
-      >
-        <option value="author">Author</option>
-        <option value="title">Title</option>
-      </select>
+      <label htmlFor="search-in-title">Search in title :</label>
+      <input
+        type="text"
+        name="search-in-title"
+        value={searchInTitle}
+        onChange={(e) => setSearchInTitle(e.target.value)}
+      />
 
       <div className="books">
         {books.length > 0
@@ -67,9 +61,9 @@ const AddBookForm = ({ refetchData }: { refetchData: () => void }) => {
     <form
       onSubmit={async (e) => {
         e.preventDefault();
-        const book: Book = { title, author, numberOfPages };
+        const book: Omit<Book, "id"> = { title, author, numberOfPages };
         if (!book.title || !book.author || !book.numberOfPages) return;
-        await httpClient.addBook({
+        await httpClient.addMyBook({
           body: book,
         });
         setTitle("");

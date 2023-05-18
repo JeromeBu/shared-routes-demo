@@ -1,11 +1,19 @@
 import { defineRoute, defineRoutes } from "shared-routes";
 import { z } from "zod";
 
-const bookSchema = z.object({
+const bookWithoutIdSchema = z.object({
   title: z.string(),
   author: z.string(),
   numberOfPages: z.number(),
 });
+
+const bookIdSchema = z.string();
+
+const bookSchema = bookWithoutIdSchema.merge(
+  z.object({
+    id: bookIdSchema,
+  })
+);
 
 export type Book = z.infer<typeof bookSchema>;
 
@@ -13,18 +21,19 @@ export const bookRoutes = defineRoutes({
   getBooks: defineRoute({
     url: "/books",
     method: "get",
-    queryParamsSchema: z.object({ orderBy: z.enum(["title", "author"]) }),
+    queryParamsSchema: z.object({ titleContains: z.string() }),
+    // headersSchema: z.object({ authorization: z.string() }),
     responseBodySchema: z.array(bookSchema),
   }),
-  getBookByTitle: defineRoute({
-    url: "/books/:title",
+  getBookById: defineRoute({
+    url: "/books/:id",
     method: "get",
-    // headersSchema: z.object({ Authorization: z.string() }),
     responseBodySchema: bookSchema,
   }),
-  addBook: defineRoute({
+  addMyBook: defineRoute({
     url: "/books",
     method: "post",
-    requestBodySchema: bookSchema,
+    requestBodySchema: bookWithoutIdSchema,
+    responseBodySchema: z.object({ id: bookIdSchema }),
   }),
 });

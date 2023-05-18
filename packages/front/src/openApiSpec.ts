@@ -15,6 +15,7 @@ const generateOpenApiSpec = createOpenApiGenerator(
 );
 
 const bookExemple: Book = {
+  id: "123",
   title: "The Hobbit",
   author: "J.R.R. Tolkien",
   numberOfPages: 310,
@@ -25,7 +26,9 @@ export const openApiSpec = generateOpenApiSpec({
     getBooks: {
       extraDocs: {
         queryParams: {
-          orderBy: { description: "Allows to chose how results are ordered" },
+          titleContains: {
+            description: "Allows to chose how results are ordered",
+          },
         },
         responseBody: {
           description: "The list of books stored in backend",
@@ -34,7 +37,7 @@ export const openApiSpec = generateOpenApiSpec({
       },
     },
 
-    addBook: {
+    addMyBook: {
       extraDocs: { successStatusCode: 201 },
     },
   },
