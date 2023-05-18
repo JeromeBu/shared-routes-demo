@@ -14,7 +14,11 @@ export const ListBooks = () => {
   const fetchBooks = () =>
     httpClient
       .getBooks({
+<<<<<<< HEAD
         queryParams: { titleContains: searchInTitle },
+=======
+        queryParams: { inTitle: searchInTitle },
+>>>>>>> cb1a7aa (improve test and show cases)
       })
       .then((response) => {
         setBooks(response.body);
@@ -28,6 +32,7 @@ export const ListBooks = () => {
   return (
     <>
       <AddBookForm refetchData={fetchBooks} />
+<<<<<<< HEAD
       <section className="app__block list-books">
         <div className="list-books__search-filter">
         <label htmlFor="search-in-title" className="add-book-form__label">Search in title :</label>
@@ -56,6 +61,28 @@ export const ListBooks = () => {
         </div>
       </section>
       
+=======
+      <hr />
+      <label htmlFor="search-in-title">Search in title :</label>
+      <input
+        type="text"
+        name="search-in-title"
+        value={searchInTitle}
+        onChange={(e) => setSearchInTitle(e.target.value)}
+      />
+
+      <div className="books">
+        {books.length > 0
+          ? books.map((book) => (
+              <div key={book.title} className="book-card">
+                <h2>{book.title}</h2>
+                <p>{book.author}</p>
+                <p>{book.numberOfPages} pages</p>
+              </div>
+            ))
+          : "No books yet !"}
+      </div>
+>>>>>>> cb1a7aa (improve test and show cases)
     </>
   );
 };

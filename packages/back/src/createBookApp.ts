@@ -10,7 +10,11 @@ export const theHobbitBook: Book = {
   numberOfPages: 310,
 };
 
+<<<<<<< HEAD
 const booksStorage: Book[] = [theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook];
+=======
+const booksStorage: Book[] = [theHobbitBook];
+>>>>>>> cb1a7aa (improve test and show cases)
 
 const getId = () => Math.floor(Math.random() * 1000);
 
@@ -24,7 +28,11 @@ const createBookRouter = () => {
   expressSharedRouter.getBooks((req, res) =>
     res.json(
       booksStorage.filter((book) =>
+<<<<<<< HEAD
         book.title.toLowerCase().includes(req.query.titleContains.toLowerCase())
+=======
+        book.title.toLowerCase().includes(req.query.inTitle.toLowerCase())
+>>>>>>> cb1a7aa (improve test and show cases)
       )
     )
   );
