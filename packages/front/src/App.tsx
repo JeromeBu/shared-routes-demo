@@ -6,18 +6,24 @@ import { openApiSpec } from "./openApiSpec";
 
 export const App = () => {
   return (
-    <>
-      <h1>Shared routes demo</h1>
-      <p>
+   <>
+    <header className="app__header">
+      <h1 className="app__title">Shared routes demo</h1>
+      <p className="app__description">
         A show case of{" "}
         <a href="https://github.com/JeromeBu/shared-routes">
           the shared-routes library
         </a>
       </p>
-      <div>
-        <ListBooks />
+    </header>
+    <main className="app">
+      
+      <ListBooks />
+      <section className="app__block">
         <SwaggerUI spec={openApiSpec} />
-      </div>
-    </>
+      </section>
+      
+    </main>
+   </>
   );
 };
