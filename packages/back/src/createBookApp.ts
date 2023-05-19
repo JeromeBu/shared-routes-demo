@@ -10,7 +10,7 @@ export const theHobbitBook: Book = {
   numberOfPages: 310,
 };
 
-const booksStorage: Book[] = [theHobbitBook];
+const booksStorage: Book[] = [theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook, theHobbitBook];
 
 const getId = () => Math.floor(Math.random() * 1000);
 

@@ -28,26 +28,34 @@ export const ListBooks = () => {
   return (
     <>
       <AddBookForm refetchData={fetchBooks} />
-      <hr />
-      <label htmlFor="search-in-title">Search in title :</label>
-      <input
-        type="text"
-        name="search-in-title"
-        value={searchInTitle}
-        onChange={(e) => setSearchInTitle(e.target.value)}
-      />
-
-      <div className="books">
-        {books.length > 0
-          ? books.map((book) => (
-              <div key={book.title} className="book-card">
-                <h2>{book.title}</h2>
-                <p>{book.author}</p>
-                <p>{book.numberOfPages} pages</p>
-              </div>
-            ))
-          : "No books yet !"}
-      </div>
+      <section className="app__block list-books">
+        <div className="list-books__search-filter">
+        <label htmlFor="search-in-title" className="add-book-form__label">Search in title :</label>
+        <input
+          type="text"
+          name="search-in-title"
+          className="input"
+          value={searchInTitle}
+          onChange={(e) => setSearchInTitle(e.target.value)}
+          placeholder="E.g. The lord of the rings"
+        />
+        </div>
+        <div className="books">
+          {books.length > 0
+            ? books.map((book) => (
+                <div key={book.title} className="book-card">
+                  <h2 className="book-card__title">{book.title}</h2>
+                  <div className="book-card__description">
+                    <p>{book.author}</p>
+                    <p>{book.numberOfPages} pages</p>
+                  </div>
+                  
+                </div>
+              ))
+            : "No books yet !"}
+        </div>
+      </section>
+      
     </>
   );
 };
@@ -55,10 +63,12 @@ export const ListBooks = () => {
 const AddBookForm = ({ refetchData }: { refetchData: () => void }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [numberOfPages, setNumberOfPages] = useState(0);
+  const [numberOfPages, setNumberOfPages] = useState(200);
 
   return (
-    <form
+    <section className="app__block">
+      <form
+      className="add-book-form"
       onSubmit={async (e) => {
         e.preventDefault();
         const book: Omit<Book, "id"> = { title, author, numberOfPages };
@@ -73,34 +83,40 @@ const AddBookForm = ({ refetchData }: { refetchData: () => void }) => {
         refetchData();
       }}
     >
-      <div>
-        <label htmlFor="title">Title</label>
+      <div className="add-book-form__row">
+        <label htmlFor="title" className="add-book-form__label">Title</label>
         <input
           type="text"
           name="title"
+          className="input"
+          placeholder="E.g. The lord of the rings"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="author">Author</label>
+      <div className="add-book-form__row">
+        <label htmlFor="author" className="add-book-form__label">Author</label>
         <input
           type="text"
           name="author"
+          placeholder="E.g. Tolkien"
+          className="input"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="author">Nombre de pages</label>
+      <div className="add-book-form__row">
+        <label htmlFor="author" className="add-book-form__label">Number of pages</label>
         <input
           type="number"
+          className="input"
           name="numberOfPages"
           value={numberOfPages}
           onChange={(e) => setNumberOfPages(parseInt(e.target.value, 10))}
         />
       </div>
-      <button type="submit">Add book</button>
+      <button type="submit" className="add-book-form__submit">Add book</button>
     </form>
+    </section>
   );
 };
