@@ -25,11 +25,7 @@ describe("bookApi", () => {
     expect(status).toBe(201);
 
     const response = await request.getBooks({
-<<<<<<< HEAD
       queryParams: { titleContains: "potter" },
-=======
-      queryParams: { inTitle: "potter" },
->>>>>>> cb1a7aa (improve test and show cases)
     });
     expect(response.status).toBe(200);
     expect(response.body).toMatchObject([harryPotterBook]);

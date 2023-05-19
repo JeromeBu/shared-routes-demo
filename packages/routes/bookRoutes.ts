@@ -21,11 +21,7 @@ export const bookRoutes = defineRoutes({
   getBooks: defineRoute({
     url: "/books",
     method: "get",
-<<<<<<< HEAD
     queryParamsSchema: z.object({ titleContains: z.string() }),
-=======
-    queryParamsSchema: z.object({ inTitle: z.string() }),
->>>>>>> cb1a7aa (improve test and show cases)
     // headersSchema: z.object({ authorization: z.string() }),
     responseBodySchema: z.array(bookSchema),
   }),

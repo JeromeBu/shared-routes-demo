@@ -26,11 +26,7 @@ export const openApiSpec = generateOpenApiSpec({
     getBooks: {
       extraDocs: {
         queryParams: {
-<<<<<<< HEAD
           titleContains: {
-=======
-          inTitle: {
->>>>>>> cb1a7aa (improve test and show cases)
             description: "Allows to chose how results are ordered",
           },
         },

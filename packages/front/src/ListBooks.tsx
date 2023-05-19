@@ -14,11 +14,7 @@ export const ListBooks = () => {
   const fetchBooks = () =>
     httpClient
       .getBooks({
-<<<<<<< HEAD
         queryParams: { titleContains: searchInTitle },
-=======
-        queryParams: { inTitle: searchInTitle },
->>>>>>> cb1a7aa (improve test and show cases)
       })
       .then((response) => {
         setBooks(response.body);
@@ -32,18 +28,19 @@ export const ListBooks = () => {
   return (
     <>
       <AddBookForm refetchData={fetchBooks} />
-<<<<<<< HEAD
       <section className="app__block list-books">
         <div className="list-books__search-filter">
-        <label htmlFor="search-in-title" className="add-book-form__label">Search in title :</label>
-        <input
-          type="text"
-          name="search-in-title"
-          className="input"
-          value={searchInTitle}
-          onChange={(e) => setSearchInTitle(e.target.value)}
-          placeholder="E.g. The lord of the rings"
-        />
+          <label htmlFor="search-in-title" className="add-book-form__label">
+            Search in title :
+          </label>
+          <input
+            type="text"
+            name="search-in-title"
+            className="input"
+            value={searchInTitle}
+            onChange={(e) => setSearchInTitle(e.target.value)}
+            placeholder="E.g. The lord of the rings"
+          />
         </div>
         <div className="books">
           {books.length > 0
@@ -54,35 +51,11 @@ export const ListBooks = () => {
                     <p>{book.author}</p>
                     <p>{book.numberOfPages} pages</p>
                   </div>
-                  
                 </div>
               ))
             : "No books yet !"}
         </div>
       </section>
-      
-=======
-      <hr />
-      <label htmlFor="search-in-title">Search in title :</label>
-      <input
-        type="text"
-        name="search-in-title"
-        value={searchInTitle}
-        onChange={(e) => setSearchInTitle(e.target.value)}
-      />
-
-      <div className="books">
-        {books.length > 0
-          ? books.map((book) => (
-              <div key={book.title} className="book-card">
-                <h2>{book.title}</h2>
-                <p>{book.author}</p>
-                <p>{book.numberOfPages} pages</p>
-              </div>
-            ))
-          : "No books yet !"}
-      </div>
->>>>>>> cb1a7aa (improve test and show cases)
     </>
   );
 };
@@ -95,55 +68,63 @@ const AddBookForm = ({ refetchData }: { refetchData: () => void }) => {
   return (
     <section className="app__block">
       <form
-      className="add-book-form"
-      onSubmit={async (e) => {
-        e.preventDefault();
-        const book: Omit<Book, "id"> = { title, author, numberOfPages };
-        if (!book.title || !book.author || !book.numberOfPages) return;
-        await httpClient.addMyBook({
-          body: book,
-        });
-        setTitle("");
-        setAuthor("");
-        setNumberOfPages(0);
+        className="add-book-form"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          const book: Omit<Book, "id"> = { title, author, numberOfPages };
+          if (!book.title || !book.author || !book.numberOfPages) return;
+          await httpClient.addMyBook({
+            body: book,
+          });
+          setTitle("");
+          setAuthor("");
+          setNumberOfPages(0);
 
-        refetchData();
-      }}
-    >
-      <div className="add-book-form__row">
-        <label htmlFor="title" className="add-book-form__label">Title</label>
-        <input
-          type="text"
-          name="title"
-          className="input"
-          placeholder="E.g. The lord of the rings"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </div>
-      <div className="add-book-form__row">
-        <label htmlFor="author" className="add-book-form__label">Author</label>
-        <input
-          type="text"
-          name="author"
-          placeholder="E.g. Tolkien"
-          className="input"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
-      </div>
-      <div className="add-book-form__row">
-        <label htmlFor="author" className="add-book-form__label">Number of pages</label>
-        <input
-          type="number"
-          className="input"
-          name="numberOfPages"
-          value={numberOfPages}
-          onChange={(e) => setNumberOfPages(parseInt(e.target.value, 10))}
-        />
-      </div>
-      <button type="submit" className="add-book-form__submit">Add book</button>
-    </form>
+          refetchData();
+        }}
+      >
+        <div className="add-book-form__row">
+          <label htmlFor="title" className="add-book-form__label">
+            Title
+          </label>
+          <input
+            type="text"
+            name="title"
+            className="input"
+            placeholder="E.g. The lord of the rings"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className="add-book-form__row">
+          <label htmlFor="author" className="add-book-form__label">
+            Author
+          </label>
+          <input
+            type="text"
+            name="author"
+            placeholder="E.g. Tolkien"
+            className="input"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+        </div>
+        <div className="add-book-form__row">
+          <label htmlFor="author" className="add-book-form__label">
+            Number of pages
+          </label>
+          <input
+            type="number"
+            className="input"
+            name="numberOfPages"
+            value={numberOfPages}
+            onChange={(e) => setNumberOfPages(parseInt(e.target.value, 10))}
+          />
+        </div>
+        <button type="submit" className="add-book-form__submit">
+          Add book
+        </button>
+      </form>
     </section>
   );
 };
