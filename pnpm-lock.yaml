@@ -23,8 +23,8 @@ importers:
         specifier: workspace:*
         version: link:../routes
       shared-routes:
-        specifier: ^0.6.8
-        version: 0.6.8(zod@3.21.4)
+        specifier: ^0.6.9
+        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
     devDependencies:
       '@types/body-parser':
         specifier: ^1.19.2
@@ -66,8 +66,8 @@ importers:
         specifier: workspace:*
         version: link:../routes
       shared-routes:
-        specifier: ^0.6.8
-        version: 0.6.8(zod@3.21.4)
+        specifier: ^0.6.9
+        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
       swagger-ui-react:
         specifier: ^4.18.3
         version: 4.18.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
@@ -112,8 +112,8 @@ importers:
   packages/routes:
     dependencies:
       shared-routes:
-        specifier: ^0.6.8
-        version: 0.6.8(zod@3.21.4)
+        specifier: ^0.6.9
+        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -3086,6 +3086,10 @@ packages:
       is-wsl: 2.2.0
     dev: false
 
+  /openapi-types@12.1.0:
+    resolution: {integrity: sha512-XpeCy01X6L5EpP+6Hc3jWN7rMZJ+/k1lwki/kTmWzbVhdPie3jd5O2ZtedEx8Yp58icJ0osVldLMrTB/zslQXA==}
+    dev: false
+
   /optionator@0.9.1:
     resolution: {integrity: sha512-74RlY5FCnhq4jRxVUPKDaRwrVNXMqsGsiW6AJw4XK8hmtm10wC0ypZBLw5IIp85NZMr91+qd1RvvENwg7jjRFw==}
     engines: {node: '>= 0.8.0'}
@@ -3773,11 +3777,13 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /shared-routes@0.6.8(zod@3.21.4):
-    resolution: {integrity: sha512-L41lAEJZC1VhNfz6//0YMWeO5LEQwBTK1XmtISECYyBM15oONGRG3S1FbGeU2uGY+blj5weuLun4KlFc1rVWLA==}
+  /shared-routes@0.6.9(openapi-types@12.1.0)(zod@3.21.4):
+    resolution: {integrity: sha512-kcJMK9ercMix8pfH+DCpeWGpb4YN/F46X7XGv96rTLSC5HLPqwXtTf6cgtBAzcPzbEtQSM4Jl1P4XvgWpBpqBQ==}
     peerDependencies:
+      openapi-types: ^12.0.0
       zod: ^3.0.0
     dependencies:
+      openapi-types: 12.1.0
       zod: 3.21.4
     dev: false
 
