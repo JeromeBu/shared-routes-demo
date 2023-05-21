@@ -37,6 +37,7 @@ a:hover, button:hover {
   color: #555;
   margin-top: 1rem;
   margin-bottom: 3rem;
+  line-height: 1.5rem;
 }
 .app__block {
   border-radius: 1rem;
