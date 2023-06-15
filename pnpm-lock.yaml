@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -23,8 +27,8 @@ importers:
         specifier: workspace:*
         version: link:../routes
       shared-routes:
-        specifier: ^0.6.9
-        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
+        specifier: ^0.7.0
+        version: 0.7.0(openapi-types@12.1.3)(zod@3.21.4)
     devDependencies:
       '@types/body-parser':
         specifier: ^1.19.2
@@ -40,10 +44,10 @@ importers:
         version: 6.3.3
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.2.1)(typescript@5.0.4)
+        version: 10.9.1(@types/node@20.3.1)(typescript@5.0.4)
       ts-node-dev:
         specifier: ^2.0.0
-        version: 2.0.0(@types/node@20.2.1)(typescript@5.0.4)
+        version: 2.0.0(@types/node@20.3.1)(typescript@5.0.4)
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
@@ -66,8 +70,8 @@ importers:
         specifier: workspace:*
         version: link:../routes
       shared-routes:
-        specifier: ^0.6.9
-        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
+        specifier: ^0.7.0
+        version: 0.7.0(openapi-types@12.1.3)(zod@3.21.4)
       swagger-ui-react:
         specifier: ^4.18.3
         version: 4.18.3(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
@@ -112,8 +116,8 @@ importers:
   packages/routes:
     dependencies:
       shared-routes:
-        specifier: ^0.6.9
-        version: 0.6.9(openapi-types@12.1.0)(zod@3.21.4)
+        specifier: ^0.7.0
+        version: 0.7.0(openapi-types@12.1.3)(zod@3.21.4)
       zod:
         specifier: ^3.21.4
         version: 3.21.4
@@ -1081,8 +1085,8 @@ packages:
     resolution: {integrity: sha512-3iD2jaCCziTx04uudpJKwe39QxXgSUnpxXSvRQjRvHPxFQfmfP4NXIm/NURVeNlTCc+ru4WqjYGTmpXrW9uMlw==}
     dev: true
 
-  /@types/node@20.2.1:
-    resolution: {integrity: sha512-DqJociPbZP1lbZ5SQPk4oag6W7AyaGMO6gSfRwq3PWl4PXTwJpRQJhDq4W0kzrg3w6tJ1SwlvGZ5uKFHY13LIg==}
+  /@types/node@20.3.1:
+    resolution: {integrity: sha512-EhcH/wvidPy1WeML3TtYFGR83UzjxeWRen9V402T8aUGYsCHOmfoisV3ZSg03gAFIbLq8TnWOJ0f4cALtnSEUg==}
     dev: true
 
   /@types/prop-types@15.7.5:
@@ -3086,8 +3090,8 @@ packages:
       is-wsl: 2.2.0
     dev: false
 
-  /openapi-types@12.1.0:
-    resolution: {integrity: sha512-XpeCy01X6L5EpP+6Hc3jWN7rMZJ+/k1lwki/kTmWzbVhdPie3jd5O2ZtedEx8Yp58icJ0osVldLMrTB/zslQXA==}
+  /openapi-types@12.1.3:
+    resolution: {integrity: sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw==}
     dev: false
 
   /optionator@0.9.1:
@@ -3777,13 +3781,13 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /shared-routes@0.6.9(openapi-types@12.1.0)(zod@3.21.4):
-    resolution: {integrity: sha512-kcJMK9ercMix8pfH+DCpeWGpb4YN/F46X7XGv96rTLSC5HLPqwXtTf6cgtBAzcPzbEtQSM4Jl1P4XvgWpBpqBQ==}
+  /shared-routes@0.7.0(openapi-types@12.1.3)(zod@3.21.4):
+    resolution: {integrity: sha512-kuQ8b4FVqT3/Vre31TiZzoGJQID4alQSnUII/YjV/HSpUmo+YDfnimaFS2tIZ6Ev6tSqhKcLhfprQAlIY6dgDQ==}
     peerDependencies:
       openapi-types: ^12.0.0
       zod: ^3.0.0
     dependencies:
-      openapi-types: 12.1.0
+      openapi-types: 12.1.3
       zod: 3.21.4
     dev: false
 
@@ -4197,7 +4201,7 @@ packages:
     dev: false
     optional: true
 
-  /ts-node-dev@2.0.0(@types/node@20.2.1)(typescript@5.0.4):
+  /ts-node-dev@2.0.0(@types/node@20.3.1)(typescript@5.0.4):
     resolution: {integrity: sha512-ywMrhCfH6M75yftYvrvNarLEY+SUXtUvU8/0Z6llrHQVBx12GiFk5sStF8UdfE/yfzk9IAq7O5EEbTQsxlBI8w==}
     engines: {node: '>=0.8.0'}
     hasBin: true
@@ -4216,7 +4220,7 @@ packages:
       rimraf: 2.7.1
       source-map-support: 0.5.21
       tree-kill: 1.2.2
-      ts-node: 10.9.1(@types/node@20.2.1)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@20.3.1)(typescript@5.0.4)
       tsconfig: 7.0.0
       typescript: 5.0.4
     transitivePeerDependencies:
@@ -4225,7 +4229,7 @@ packages:
       - '@types/node'
     dev: true
 
-  /ts-node@10.9.1(@types/node@20.2.1)(typescript@5.0.4):
+  /ts-node@10.9.1(@types/node@20.3.1)(typescript@5.0.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -4244,7 +4248,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 20.2.1
+      '@types/node': 20.3.1
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
