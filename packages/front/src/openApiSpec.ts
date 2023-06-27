@@ -30,15 +30,31 @@ export const openApiSpec = generateOpenApiSpec({
             description: "Allows to chose how results are ordered",
           },
         },
-        responseBody: {
-          description: "The list of books stored in backend",
-          example: [bookExemple],
+        responses: {
+          "200": { description: "The list of books" },
+        },
+      },
+    },
+
+    getBookById: {
+      extraDocs: {
+        responses: {
+          "200": {
+            description: "When the book is found",
+          },
+          "404": { description: "When the book cannot be found" },
         },
       },
     },
 
     addMyBook: {
-      extraDocs: { successStatusCode: 201 },
+      extraDocs: {
+        body: {
+          description: "The book to add",
+          example: bookExemple,
+        },
+        responses: { "201": { description: "Returns the id, on success" } },
+      },
     },
   },
 });

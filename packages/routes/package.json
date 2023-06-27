@@ -11,7 +11,7 @@
     "typescript": "^5.0.4"
   },
   "dependencies": {
-    "shared-routes": "^0.7.0",
+    "shared-routes": "^0.8.0",
     "zod": "^3.21.4"
   }
 }

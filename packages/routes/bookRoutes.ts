@@ -23,17 +23,17 @@ export const bookRoutes = defineRoutes({
     method: "get",
     queryParamsSchema: z.object({ titleContains: z.string() }),
     // headersSchema: z.object({ authorization: z.string() }),
-    responseBodySchema: z.array(bookSchema),
+    responses: { 200: z.array(bookSchema) },
   }),
   getBookById: defineRoute({
     url: "/books/:id",
     method: "get",
-    responseBodySchema: bookSchema,
+    responses: { 200: bookSchema, 404: z.object({ message: z.string() }) },
   }),
   addMyBook: defineRoute({
     url: "/books",
     method: "post",
     requestBodySchema: bookWithoutIdSchema,
-    responseBodySchema: z.object({ id: bookIdSchema }),
+    responses: { 201: z.object({ id: bookIdSchema }) },
   }),
 });

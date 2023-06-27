@@ -45,7 +45,10 @@ const createBookRouter = () => {
 
   expressSharedRouter.getBookById((req, res) => {
     const matchedBook = booksStorage.find((book) => book.id === req.params.id);
-    res.json(matchedBook);
+    if (!matchedBook)
+      return res.status(404).json({ message: "Book not found" });
+
+    return res.status(200).json(matchedBook);
   });
 
   return expressRouter;
