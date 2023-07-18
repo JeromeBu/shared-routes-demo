@@ -4,13 +4,14 @@
   "scripts": {
     "dev": "ts-node-dev ./src/startServer.ts",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest --watch=false",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "routes": "workspace:*",
-    "shared-routes": "^0.8.0"
+    "shared-routes": "^0.8.12"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
